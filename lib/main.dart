@@ -57,25 +57,38 @@ Widget topContainer() {
 
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(4)),
+          border: Border.all(color: Color.fromRGBO(200, 200, 200, 1)),
+          gradient: LinearGradient(colors: [
+            Color.fromRGBO(4, 19, 52, 1),
+            Color.fromRGBO(19, 37, 77, 1)
+          ])),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
             width: 30,
             alignment: Alignment.centerLeft,
-            child: Icon(Icons.star),
+            child: Icon(
+              Icons.circle,
+              color: Colors.yellow,
+            ),
           ),
           Container(
-            width: 275,
+            width: 270,
             // alignment: Alignment(0, 0),
             // color: Color.fromRGBO(0, 0, 100, 1),
             child: Text(
-              'Play and earn coin',
+              'Play and earn coins',
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
           Container(
-            child: Icon(Icons.double_arrow),
+            child: Icon(
+              Icons.double_arrow,
+              color: Colors.white,
+            ),
           )
           // Icon(Icons.arrow_right)
         ],
