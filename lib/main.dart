@@ -112,7 +112,7 @@ Widget slideImages() {
   );
 }
 
-Widget ImageStackFirstRow() {
+Widget ImageStackFirstRow(String image) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -131,27 +131,55 @@ Widget ImageStackFirstRow() {
       Container(
         margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
         height: 30,
-        color: Colors.blue,
         width: 30,
-        child: Image(image: AssetImage('assets/images/spotify.png')),
+        child: Image(image: AssetImage('assets/images/netflix.png')),
       ),
     ],
   );
 }
 
-Widget ImageStack() {
-  return Stack(
+Widget ImageStackSecondRow() {
+  return Row(
     children: [
-      Image(image: AssetImage('assets/images/spotify.png')),
       Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [ImageStackFirstRow(), Row()],
+        children: [
+          Container(
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            height: 25,
+            width: 150,
+            child: Text(
+              'Amazon Prime',
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            height: 25,
+            width: 150,
+            child: Text(
+              'Starting at Rs299',
+              style: TextStyle(color: Colors.yellow, fontSize: 15),
+            ),
+          ),
+        ],
       )
     ],
   );
 }
 
-Widget HorizontalListImages() {
+Widget ImageStack(String image) {
+  return Stack(
+    children: [
+      Image(image: AssetImage('assets/images/spotify.png')),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [ImageStackFirstRow(image), ImageStackSecondRow()],
+      )
+    ],
+  );
+}
+
+Widget HorizontalListImages(String image) {
   return Container(
       margin: EdgeInsets.all(1),
       width: 200.0,
@@ -162,35 +190,24 @@ Widget HorizontalListImages() {
           bottomLeft: Radius.circular(4),
           topRight: Radius.circular(4),
         ),
-        color: Colors.red,
       ),
-      child: ImageStack());
+      child: ImageStack(image));
 }
 
 Widget HorizontalList() {
+  String image = 'netflix.png';
   return new Container(
       margin: EdgeInsets.all(5),
       height: 200.0,
       // ignore: unnecessary_new
-      child: new ListView(
+      child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          HorizontalListImages(),
-          Container(
-            margin: EdgeInsets.all(1),
-            width: 200.0,
-            color: Colors.orange,
-          ),
-          Container(
-            margin: EdgeInsets.all(1),
-            width: 200.0,
-            color: Colors.pink,
-          ),
-          Container(
-            margin: EdgeInsets.all(1),
-            width: 200.0,
-            color: Colors.yellow,
-          ),
+          HorizontalListImages(image),
+          HorizontalListImages(image),
+          HorizontalListImages(image),
+          HorizontalListImages(image),
+          HorizontalListImages(image),
         ],
       ));
 }
@@ -506,7 +523,7 @@ class MyApp extends StatelessWidget {
           children: [
             topContainer(),
             slideImages(),
-            publicGroups('All Subsrciptions'),
+            publicGroups('All Subscriptions'),
             HorizontalList(),
             publicGroups('Public Groups'),
             publicGroupList(),
