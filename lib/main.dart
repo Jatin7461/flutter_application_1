@@ -112,24 +112,62 @@ Widget slideImages() {
   );
 }
 
-Widget HorizontalList() {
-  // return Image(image: AssetImage('assets/images/superman.jpg'));
-  // return Container(
-  //   height: 200,
-  //   width: 10,
-  //   color: Colors.blue,
-  //   child: Stack(
-  //     alignment: AlignmentDirectional.bottomStart,
-  //     children: [
-  //       Image(image: AssetImage('assets/images/superman.jpg')),
-  //       Center(
-  //         child: Text('data'),
-  //       )
-  //     ],
-  //   ),
-  // );
+Widget ImageStack() {
+  return Stack(
+    children: [
+      Image(image: AssetImage('assets/images/spotify.png')),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                // margin: EdgeInsets.fromLTRB(4, 4, 0, 0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(4),
+                        bottomRight: Radius.circular(4)),
+                    color: Colors.blue),
+                padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
+                height: 55,
+                alignment: Alignment.topRight,
+                width: 40,
+                child: Text('Upto 30% Off'),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+                height: 30,
+                color: Colors.blue,
+                width: 30,
+                child: Image(image: AssetImage('assets/images/spotify.png')),
+              ),
+            ],
+          ),
+          Row()
+        ],
+      )
+    ],
+  );
+}
 
-  // ignore: unnecessary_new
+Widget HorizontalListImages() {
+  return Container(
+      margin: EdgeInsets.all(1),
+      width: 200.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(4),
+          bottomRight: Radius.circular(4),
+          bottomLeft: Radius.circular(4),
+          topRight: Radius.circular(4),
+        ),
+        color: Colors.red,
+      ),
+      child: ImageStack());
+}
+
+Widget HorizontalList() {
   return new Container(
       margin: EdgeInsets.all(5),
       height: 200.0,
@@ -137,12 +175,7 @@ Widget HorizontalList() {
       child: new ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(1),
-            // width: 200.0,
-            color: Colors.red,
-            child: Image(image: AssetImage('assets/images/superman.jpg')),
-          ),
+          HorizontalListImages(),
           Container(
             margin: EdgeInsets.all(1),
             width: 200.0,
