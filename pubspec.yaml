@@ -63,6 +63,13 @@ flutter:
   assets:
     - assets/images/superman.jpg
     - assets/images/spotify.png
+    - assets/images/netflix.png
+    - assets/images/netflix.jpg
+    - assets/images/refer.jpg
+    - assets/images/subspace.jpg
+    - assets/images/subspace.png
+    - assets/images/subSpacephoto.png
+    - assets/images/amazonprime.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

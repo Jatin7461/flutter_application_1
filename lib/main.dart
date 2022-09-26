@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 // import 'dart:html';
 
+import 'dart:ui';
+
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 // ignore_for_file: prefer_const_constructors
@@ -100,19 +102,13 @@ Widget slideImages() {
     margin: EdgeInsets.all(5),
     // padding: EdgeInsets.fromLTRB(0, 75, 0, 75),
     height: 200,
-    color: Colors.blue,
-    child: Row(
-      children: const [
-        Text(
-          'yes',
-          textAlign: TextAlign.center,
-        ),
-      ],
+    child: Image(
+      image: AssetImage('assets/images/subSpacephoto.png'),
     ),
   );
 }
 
-Widget ImageStackFirstRow(String image) {
+Widget ImageStackFirstRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -129,11 +125,10 @@ Widget ImageStackFirstRow(String image) {
         child: Text('Upto 30% Off'),
       ),
       Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
-        height: 30,
-        width: 30,
-        child: Image(image: AssetImage('assets/images/netflix.png')),
-      ),
+          margin: EdgeInsets.fromLTRB(0, 0, 4, 0),
+          height: 30,
+          width: 30,
+          child: Image(image: AssetImage('assets/images/spotify.png'))),
     ],
   );
 }
@@ -148,7 +143,7 @@ Widget ImageStackSecondRow() {
             height: 25,
             width: 150,
             child: Text(
-              'Amazon Prime',
+              'Spotify Prime',
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
@@ -167,19 +162,19 @@ Widget ImageStackSecondRow() {
   );
 }
 
-Widget ImageStack(String image) {
+Widget ImageStack() {
   return Stack(
     children: [
       Image(image: AssetImage('assets/images/spotify.png')),
       Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [ImageStackFirstRow(image), ImageStackSecondRow()],
+        children: [ImageStackFirstRow(), ImageStackSecondRow()],
       )
     ],
   );
 }
 
-Widget HorizontalListImages(String image) {
+Widget HorizontalListImages() {
   return Container(
       margin: EdgeInsets.all(1),
       width: 200.0,
@@ -191,11 +186,10 @@ Widget HorizontalListImages(String image) {
           topRight: Radius.circular(4),
         ),
       ),
-      child: ImageStack(image));
+      child: ImageStack());
 }
 
 Widget HorizontalList() {
-  String image = 'netflix.png';
   return new Container(
       margin: EdgeInsets.all(5),
       height: 200.0,
@@ -203,11 +197,11 @@ Widget HorizontalList() {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          HorizontalListImages(image),
-          HorizontalListImages(image),
-          HorizontalListImages(image),
-          HorizontalListImages(image),
-          HorizontalListImages(image),
+          HorizontalListImages(),
+          HorizontalListImages(),
+          HorizontalListImages(),
+          HorizontalListImages(),
+          HorizontalListImages(),
         ],
       ));
 }
@@ -516,8 +510,21 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           // title: const Text('Welcome to Flutter'),
           backgroundColor: Color.fromRGBO(44, 44, 44, 1),
-
-          title: Text("hello"),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.circle,
+                  color: Colors.white,
+                )),
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.circle,
+                  color: Colors.white,
+                ))
+          ],
+          title: Text("Explore"),
         ),
         body: ListView(
           children: [
